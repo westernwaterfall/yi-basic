@@ -11,6 +11,7 @@ This is an open source project based on traditional Chinese numerology. In the p
 
 ## 博客
 [西风独醉的博客](https://www.xifengduzui.com/)
+[术数西川斋](https://www.westflow.life/)
 
 ## 论坛
 [元亨利贞网在线算命论坛](https://bbs.china95.net/)
