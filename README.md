@@ -5,15 +5,46 @@ This is an open source project based on traditional Chinese numerology. In the p
 
 
 # 精选资源
+## 玄学购书
+[风水杂志 - 图书目录](https://fengshui-magazine.com.hk/book-cata-18.htm)
+[星易图书网](https://www.xinyibooks.com/)
+[妙訣堂](https://www.miukuettong.com/)
+[武陵出版社](https://www.woolin.com.tw/)
+[進源書局網路書店](https://www.chinyuan.com.tw/)
+
+
+
 
 ## 古籍
 [中国哲学书电子化计划](https://ctext.org/zhs)
 
 ## 博客
+[苏民峰](https://www.masterso.com/)
+[麦玲玲](http://www.maklingling.com.hk/aboutmll.html)
+[七仙羽](https://master7.com/hk/%E9%97%9C%E6%96%BC%E5%A5%B9/)
 [西风独醉的博客](https://www.xifengduzui.com/)
 [术数西川斋](https://www.westflow.life/)
+[楊天命](https://www.master-ytm.com/)
+[司徒法正](http://www.kingofmaster.com/master_profile.php?master=%E5%8F%B8%E5%BE%92%E6%B3%95%E6%AD%A3)
+[李居明](https://www.likuiming.com/)
+[王亭之](https://www.kankanwoo.com/)
+[張盛舒](https://www.click108.com.tw/sam/sam.php?Vender=pc_index_top07_c01_i01)
+[林祐民](https://www.ymlin.com/關於我)
+[李丞責](https://leeshingchak.com/)
+[劉國偉](https://www.masterkl.com/78/)
+
+
+
 
 ## 论坛
 [元亨利贞网在线算命论坛](https://bbs.china95.net/)
-
 [龙隐论坛](https://bbs.longyinok.com/forum-36-1.html)
+[台湾DestinyNet论坛](https://destiny.to/ubbthreads/ubbthreads.php)
+
+## 排盘
+[问真八字在线排盘](https://pcbz.iwzwh.com/#/home/index)
+[元亨利贞网四柱八字网络在线排盘](https://paipan.china95.net/BaZi.htm)
+[排盘工具网](http://www.paipan.wang/)
+
+
+
