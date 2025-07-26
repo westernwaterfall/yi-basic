@@ -12,11 +12,15 @@ This is an open source project based on traditional Chinese numerology. In the p
 [武陵出版社](https://www.woolin.com.tw/)
 [進源書局網路書店](https://www.chinyuan.com.tw/)
 
-
-
-
 ## 古籍
 [中国哲学书电子化计划](https://ctext.org/zhs)
+[识典古籍](https://www.shidianguji.com/)
+[书格](https://www.shuge.org/)
+[中国国家图书馆](https://www.nlc.cn/web/index.shtml)
+[国家古籍数字化资源总平台](https://www.guji.cn/)
+[敦煌文献研究所](https://dhyssjk.dha.ac.cn/dhh_p/zh_CN/index.aspx)
+[wiki-術數](https://www.wikiwand.com/zh-hans/articles/%E8%A1%93%E6%95%B8)
+[道教文化资料库/術數](https://zh.daoinfo.org/index.php?title=%E8%A1%93%E6%95%B8&variant=zh-hans)
 
 ## 博客
 [苏民峰](https://www.masterso.com/)
@@ -34,8 +38,6 @@ This is an open source project based on traditional Chinese numerology. In the p
 [劉國偉](https://www.masterkl.com/78/)
 
 
-
-
 ## 论坛
 [元亨利贞网在线算命论坛](https://bbs.china95.net/)
 [龙隐论坛](https://bbs.longyinok.com/forum-36-1.html)
@@ -45,6 +47,7 @@ This is an open source project based on traditional Chinese numerology. In the p
 [问真八字在线排盘](https://pcbz.iwzwh.com/#/home/index)
 [元亨利贞网四柱八字网络在线排盘](https://paipan.china95.net/BaZi.htm)
 [排盘工具网](http://www.paipan.wang/)
+[fatew](https://fatew.com/)
 
 
 

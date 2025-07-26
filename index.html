@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>术数基础 - 中国传统术数资源导航</title>
+    <style>
+        :root {
+            --primary: oklch(62% 0.17 255);
+            --secondary: oklch(75% 0.12 280);
+            --accent: oklch(68% 0.15 45);
+            --bg-primary: oklch(98% 0.02 270);
+            --bg-secondary: oklch(95% 0.03 270);
+            --text-primary: oklch(25% 0.05 270);
+            --text-secondary: oklch(45% 0.08 270);
+            --border: oklch(85% 0.05 270);
+            --shadow: 0 4px 20px oklch(0% 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+            background: var(--bg-primary);
+        }
+
+        .tab-button:hover {
+            background: var(--bg-secondary);
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 2rem;
+        }
+
+        .nav-section {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px oklch(0% 0 0 / 0.15);
+        }
+
+        .nav-section h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .nav-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px oklch(62% 0.17 255 / 0.3);
+        }
+
+        .nav-link::before {
+            content: '→';
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: translateX(4px);
+        }
+
+        .content-section {
+            padding-right: 1rem;
+        }
+
+        .content-section h1, .content-section h2, .content-section h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .content-section h1 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .content-section blockquote {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .content-section pre {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-content {
+                padding: 1rem;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>易学基础</h1>
+            <p>中国传统术数基础的开源计划，集大家的力量做好传承</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab('navigation')">资源导航</button>
+            <button class="tab-button" onclick="switchTab('content')">术数基础背诵</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="navigation" class="tab-pane active">
+                <div class="nav-grid">
+                    <div class="nav-section">
+                        <h3>玄学购书</h3>
+                        <div class="nav-links">
+                            <a href="https://fengshui-magazine.com.hk/book-cata-18.htm" class="nav-link" target="_blank">风水杂志 - 图书目录</a>
+                            <a href="https://www.xinyibooks.com/" class="nav-link" target="_blank">星易图书网</a>
+                            <a href="https://www.miukuettong.com/" class="nav-link" target="_blank">妙訣堂</a>
+                            <a href="https://www.woolin.com.tw/" class="nav-link" target="_blank">武陵出版社</a>
+                            <a href="https://www.chinyuan.com.tw/" class="nav-link" target="_blank">進源書局網路書店</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>古籍资源</h3>
+                        <div class="nav-links">
+                            <a href="https://ctext.org/zhs" class="nav-link" target="_blank">中国哲学书电子化计划</a>
+                            <a href="https://www.shidianguji.com/" class="nav-link" target="_blank">识典古籍</a>
+                            <a href="https://www.shuge.org/" class="nav-link" target="_blank">书格</a>
+                            <a href="https://www.nlc.cn/web/index.shtml" class="nav-link" target="_blank">中国国家图书馆</a>
+                            <a href="https://www.guji.cn/" class="nav-link" target="_blank">国家古籍数字化资源总平台</a>
+                            <a href="https://dhyssjk.dha.ac.cn/dhh_p/zh_CN/index.aspx" class="nav-link" target="_blank">敦煌文献研究所</a>
+                            <a href="https://www.wikiwand.com/zh-hans/articles/%E8%A1%93%E6%95%B8" class="nav-link" target="_blank">wiki-術數</a>
+                            <a href="https://zh.daoinfo.org/index.php?title=%E8%A1%93%E6%95%B8&variant=zh-hans" class="nav-link" target="_blank">道教文化资料库/術數</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>名师博客</h3>
+                        <div class="nav-links">
+                            <a href="https://www.masterso.com/" class="nav-link" target="_blank">苏民峰</a>
+                            <a href="http://www.maklingling.com.hk/aboutmll.html" class="nav-link" target="_blank">麦玲玲</a>
+                            <a href="https://master7.com/hk/%E9%97%9C%E6%96%BC%E5%A5%B9/" class="nav-link" target="_blank">七仙羽</a>
+                            <a href="https://www.xifengduzui.com/" class="nav-link" target="_blank">西风独醉的博客</a>
+                            <a href="https://www.westflow.life/" class="nav-link" target="_blank">术数西川斋</a>
+                            <a href="https://www.master-ytm.com/" class="nav-link" target="_blank">楊天命</a>
+                            <a href="http://www.kingofmaster.com/master_profile.php?master=%E5%8F%B8%E5%BE%92%E6%B3%95%E6%AD%A3" class="nav-link" target="_blank">司徒法正</a>
+                            <a href="https://www.likuiming.com/" class="nav-link" target="_blank">李居明</a>
+                            <a href="https://www.kankanwoo.com/" class="nav-link" target="_blank">王亭之</a>
+                            <a href="https://www.click108.com.tw/sam/sam.php?Vender=pc_index_top07_c01_i01" class="nav-link" target="_blank">張盛舒</a>
+                            <a href="https://www.ymlin.com/關於我" class="nav-link" target="_blank">林祐民</a>
+                            <a href="https://leeshingchak.com/" class="nav-link" target="_blank">李丞責</a>
+                            <a href="https://www.masterkl.com/78/" class="nav-link" target="_blank">劉國偉</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>学习论坛</h3>
+                        <div class="nav-links">
+                            <a href="https://bbs.china95.net/" class="nav-link" target="_blank">元亨利贞网在线算命论坛</a>
+                            <a href="https://bbs.longyinok.com/forum-36-1.html" class="nav-link" target="_blank">龙隐论坛</a>
+                            <a href="https://destiny.to/ubbthreads/ubbthreads.php" class="nav-link" target="_blank">台湾DestinyNet论坛</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <h3>排盘工具</h3>
+                        <div class="nav-links">
+                            <a href="https://pcbz.iwzwh.com/#/home/index" class="nav-link" target="_blank">问真八字在线排盘</a>
+                            <a href="https://paipan.china95.net/BaZi.htm" class="nav-link" target="_blank">元亨利贞网四柱八字网络在线排盘</a>
+                            <a href="http://www.paipan.wang/" class="nav-link" target="_blank">排盘工具网</a>
+                            <a href="https://fatew.com/" class="nav-link" target="_blank">fatew</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content" class="tab-pane">
+                <div class="content-section">
+                        <h1>联系我</h1>
+                        <p>公众号发布最新消息，了解更多。</p>
+                        <p>个人博客：<a href="https://westflow.cn" target="_blank">术数西川斋</a></p>
+                        <div class="image-container">
+                            <img src="./img/西川斋公众号qrcode258.jpg" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <h1>太极</h1>
+                        <div class="image-container">
+                            <img src="./img/太极.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <h1>干支五行篇</h1>
+                        <h3>正五行</h3>
+                        <p>金木水火土</p>
+                        <p>生：金生水 水生木 木生火 火生土 土生金</p>
+                        <p>克：金克木 木克土 土克水 水克火 火克金</p>
+                        <h3>五行属性</h3>
+                        <p>水曰润下</p>
+                        <p>火曰炎上</p>
+                        <p>木曰曲直</p>
+                        <p>金曰从革</p>
+                        <p>土曰稼墙</p>
+                        <h3>十天干</h3>
+                        <p>甲(jiǎ) 乙(yǐ) 丙(bǐng) 丁(dīng) 戊(wù) 己(jǐ) 庚(gēng) 辛(xīn) 壬(rén) 癸(guǐ)</p>
+                        <h3>天干五行</h3>
+                        <p>甲为阳木 乙为阴木 在东方</p>
+                        <p>丙为阳火 丁为阴火 在南方</p>
+                        <p>戊为阳土 己为阴土 在中央</p>
+                        <p>庚为阳金 辛为阴金 在西方</p>
+                        <p>壬为阳水 癸为阴水 在北方</p>
+                        <h3>天干合化</h3>
+                        <p>甲己合化土</p>
+                        <p>乙庚合化金</p>
+                        <p>丙辛合化水</p>
+                        <p>丁壬合化木</p>
+                        <p>戊癸合化火</p>
+                        <h3>十二地支</h3>
+                        <p>子(zǐ) 丑(chǒu) 寅(yín) 卯(mǎo) 辰(chén) 巳(sì) 午(wǔ) 未(wèi) 申(shēn) 酉(yǒu) 戌(xū) 亥(hài)</p>
+                        <h3>十二地支掌诀图</h3>
+                        <div class="image-container">
+                            <img src="./img/十二地支掌诀图-西川斋.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <p>熟悉掌诀图后 以下十二地支相关内容皆可用手指掌诀配合背诵,即掐指运算</p>
+                        <h3>地支空间方位</h3>
+                        <p>寅卯属木 寅阳木东北 卯阴木正东方</p>
+                        <p>巳午属火 午阳火南方 巳阴火东南方</p>
+                        <p>申酉属金 申阳金西南方 酉阴金正西方</p>
+                        <p>亥子属水 子阳水正北方 亥阴水西北方</p>
+                        <p>辰戌丑未属土 辰戌阳土 丑未阴土 亦称四隅 丑东北方 辰东南方 未西南方 戌西北方</p>
+                        <h3>地支藏干歌诀</h3>
+                        <p>子藏癸水在其中 丑中癸辛己土同 寅藏甲木和丙戊</p>
+                        <p>卯中乙木独相逢 辰藏乙木兼戊癸 巳中庚金有丙戊</p>
+                        <p>午藏丁火并己土 未中乙木加己丁 申藏戊土庚并壬</p>
+                        <p>酉中辛金独丰隆 戌藏辛金及丁戊 亥中壬水甲木存</p>
+                        <h3>地支属相</h3>
+                        <p>子鼠 丑牛 寅虎</p>
+                        <p>卯兔 辰龙 巳蛇</p>
+                        <p>午马 未羊 申猴</p>
+                        <p>酉鸡 戍狗 亥猪</p>
+                        <h4>地支月份</h4>
+                        <p>立春正月节建寅 惊蛰二月节建卯</p>
+                        <p>清明三月节建辰 立夏四月节建巳</p>
+                        <p>芒种五月节建午 小暑六月节建未</p>
+                        <p>立秋七月节建申 白露八月节建酉</p>
+                        <p>寒露九月节建戍 立冬十月节建亥</p>
+                        <p>大雪十一月节建子  小寒十二月节建丑</p>
+                        <h3>十二月将</h3>
+                        <p>亥为登明（征明） 戊为天魁（河魁）</p>
+                        <p>酉为从魁 申为传送</p>
+                        <p>未为小吉 午为胜光（胜先）</p>
+                        <p>巳为太乙（太一 泰一） 辰为天罡（天刚 天冈）</p>
+                        <p>卯为太冲 寅为功曹</p>
+                        <p>丑为大吉 子为神后</p>
+                        <h3>十二建星</h3>
+                        <p>建 除 满</p>
+                        <p>平 定 执</p>
+                        <p>破 危 成</p>
+                        <p>收 开 闭</p>
+                        <h3>地支时辰</h3>
+                        <p>23——1点 子时</p>
+                        <p>1——3点 丑时</p>
+                        <p>3——5点 寅时</p>
+                        <p>5——7点 卯时</p>
+                        <p>7——9点 辰时</p>
+                        <p>9——11点 巳时</p>
+                        <p>11——13点 午时</p>
+                        <p>13——15点 未时</p>
+                        <p>15——17点 申时</p>
+                        <p>17——19点 酉时</p>
+                        <p>19——21点 戌时</p>
+                        <p>21——23点 亥时</p>
+                        <h3>地支三合局</h3>
+                        <p>申子辰 三合水局</p>
+                        <p>亥卯未 三合木局</p>
+                        <p>寅午戌 三合火局</p>
+                        <p>巳酉丑 三合金局</p>
+                        <h3>地支三会局</h3>
+                        <p>寅卯辰三会东方木局</p>
+                        <p>巳午未三会南方火局</p>
+                        <p>申酉戌三会西方金局</p>
+                        <p>亥子丑三会北方水局</p>
+                        <h3>地支三煞方</h3>
+                        <p>寅午戌三煞在亥子丑</p>
+                        <p>巳酉丑三煞在寅卯辰</p>
+                        <p>申子辰三煞在巳午未</p>
+                        <p>亥卯未三煞在申酉戌</p>
+                        <h3>地支六合</h3>
+                        <p>子丑合土 寅亥合木</p>
+                        <p>卯戌合火 辰酉合金</p>
+                        <p>巳申合水 午未合火</p>
+                        <h3>地支六冲</h3>
+                        <p>子午冲 丑未冲</p>
+                        <p>寅申冲 卯酉冲</p>
+                        <p>辰戌冲 巳亥冲</p>
+                        <h3>地支六害</h3>
+                        <p>寅巳相害 卯辰相害</p>
+                        <p>丑午相害 子未相害</p>
+                        <p>亥申相害 酉戌相害</p>
+                        <h3>六十甲子纳音</h3>
+                        <p>甲子乙丑海中金  丙寅丁卯炉中火</p>
+                        <p>戊辰己巳大林木  庚午辛未路旁土</p>
+                        <p>壬申癸酉剑锋金  甲戌乙亥山头火</p>
+                        <p>丙子丁丑涧下水  戊寅己卯城头土</p>
+                        <p>庚辰辛巳白蜡金  壬午癸未杨柳木</p>
+                        <p>甲申乙酉泉中水  丙戌丁亥屋上土</p>
+                        <p>戊子己丑霹雳火  庚寅辛卯松柏木</p>
+                        <p>壬辰癸巳长流水  甲午乙未沙中金</p>
+                        <p>丙申丁酉山下火  戊戌己亥平地木</p>
+                        <p>庚子辛丑壁上土  壬寅癸卯金箔金</p>
+                        <p>甲辰乙巳覆灯火  丙午丁未天河水</p>
+                        <p>戊申己酉大驿土  庚戌辛亥钗钏金</p>
+                        <p>壬子癸丑桑柘木  甲寅乙卯大溪水</p>
+                        <p>丙辰丁巳沙中土  戊午己未天上火</p>
+                        <p>庚申辛酉石榴木  壬戌癸亥大海水</p>
+                        <h3>空亡</h3>
+                        <p>甲子旬中戌亥空 甲戌旬中申酉空</p>
+                        <p>甲申旬中午未空 甲午旬中辰巳空</p>
+                        <p>甲辰旬中寅卯空 甲寅旬中子丑空</p>
+                        <h3>五虎遁</h3>
+                        <p>甲己之年丙作首 乙庚之年戊為头</p>
+                        <p>丙辛之岁寻庚起 丁壬壬寅順水流</p>
+                        <p>若问戊癸何方起 甲寅之上好追求</p>
+                        <h3>五鼠遁</h3>
+                        <p>甲己还加甲 乙庚丙作初</p>
+                        <p>丙辛从戊起 丁壬庚子居</p>
+                        <p>戊癸起壬子 周而复始求</p>
+                        <h3>十二长生</h3>
+                        <p>长生 沐浴 冠带 临官 帝旺 衰 病 死 墓 绝 胎 养</p>
+                        <h3>生旺库</h3>
+                        <p>四生：寅申巳亥</p>
+                        <p>四正：子午卯酉</p>
+                        <p>四库：辰戌丑未</p>
+                        <h3>天干禄位</h3>
+                        <p>甲禄在寅 乙禄在卯</p>
+                        <p>丙戊禄在巳 丁己禄在午</p>
+                        <p>庚禄在申 辛禄在酉</p>
+                        <p>壬禄在亥 癸禄在子</p>
+                        <h3>天干羊刃</h3>
+                        <p>禄前一位为羊刃</p>
+                        <h3>驾前十二神（宫庙制解十二神煞)</h3>
+                        <p>源自于唐·果老驾前神煞歌</p>
+                        <p>岁驾剑锋伏屍寄 二为天空仍可畏</p>
+                        <p>丧门地雌孝服来 四为贯索勾神虑</p>
+                        <p>官符五鬼及飞符 死符小耗月德具</p>
+                        <p>岁破大耗阑干并 八为暴败天厄至</p>
+                        <p>九是白虎即天雄 天德绞煞卷舌忌</p>
+                        <p>十一吊客与天狗 十二病符蓦越位</p>
+                        <h2>八卦及河图洛书篇</h2>
+                        <h3>河图</h3>
+                        <div class="image-container">
+                            <img src="./img/河图.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <p>一六共宗 二七同道 三八为友 四九为朋 五十同途</p>
+                        <h3>洛书</h3>
+                        <div class="image-container">
+                            <img src="./img/洛书.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <p>戴九履一 二四为肩 左三右七 六八为足 五居其中</p>
+                        <h3>八卦读音</h3>
+                        <p>乾qián 兑duì 离lí 震zhèn 巽xùn 坎kǎn 艮ɡèn 坤kūn</p>
+                        <h3>八卦歌诀</h3>
+                        <p>乾三连 坤六断</p>
+                        <p>震仰盂 艮覆碗</p>
+                        <p>离中虚 坎中满</p>
+                        <p>兑上缺 巽下断</p>
+                        <h3>先天八卦图（伏羲先天八卦）</h3>
+                        <div class="image-container">
+                            <img src="./img/先天八卦.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <h3>先天八卦数</h3>
+                        <p>乾一 兑二 离三 震四 巽五 坎六 艮七 坤八</p>
+                        <h3>先天八卦六亲</h3>
+                        <p>乾为老父 居西北 坤为老母 居西南</p>
+                        <p>震为长男 居东方 巽为长女 居东南</p>
+                        <p>坎为少男 居北方 离为中女 居南方</p>
+                        <p>艮为少男 居东北 兑为少女 居西方</p>
+                        <h3>后天八卦图（文王后天八卦）</h3>
+                        <div class="image-container">
+                            <img src="./img/后天八卦.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 1rem auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                        </div>
+                        <p>顺序：乾坎艮震 巽离坤兑</p>
+                        <h3>后天八卦数</h3>
+                        <p>坎一 坤二 震三 巽四 中五 乾六 兑七 艮八 离九</p>
+                        <h3>八卦纳甲</h3>
+                        <p>乾纳甲壬 坤纳乙癸 艮纳丙 巽纳辛</p>
+                        <p>震纳庚 兑纳丁 离纳戊 坎纳己</p>
+                        <h2>风水篇</h2>
+                        <h3>大游年歌诀</h3>
+                        <p>乾六天五祸绝延生 坎五天生延绝祸六</p>
+                        <p>艮六绝祸生延天五 震延生祸绝五天六</p>
+                        <p>巽天五六祸生绝延 离六五绝延祸生天</p>
+                        <p>坤天延绝生祸五六 兑生祸延绝六五天</p>
+                        <p>乾六天五祸绝延生 这里的乾为乾卦开门</p>
+                        <p>北方坎宫为六煞凶方 东北艮宫为天医吉方</p>
+                        <p>东方震宫为五鬼凶方 东南巽宫是祸害凶方</p>
+                        <p>南方离宫是绝命凶方 西南坤宫为延年吉方</p>
+                        <p>西方兑宫是生气吉方 伏位则位于西北乾宫</p>
+                        <h3>八宅四吉四凶星</h3>
+                        <p>**四吉星**</p>
+                        <p>生气贪狼木 延年武曲金</p>
+                        <p>天医巨门土 伏位辅弼木</p>
+                        <p>**四凶星**</p>
+                        <p>绝命破军金 五鬼廉贞火</p>
+                        <p>祸害禄存土 六煞文曲水</p>
+                        <h3>二十四山</h3>
+                        <p>二十四山即二十四方位 每三山一组 是八个方位 每一个方位配一卦 合共八卦.</p>
+                        <p>北 方：壬子癸三山配 坎卦</p>
+                        <p>东北方：丑艮寅三山配 艮卦</p>
+                        <p>东 方：甲卯乙三山配 震卦</p>
+                        <p>东南方：辰巽巳三山配 巽卦</p>
+                        <p>南 方：丙午丁三山配 离卦</p>
+                        <p>西南方：未坤申三山配 坤卦</p>
+                        <p>西 方：庚酉辛三山配 兑卦</p>
+                        <p>西北方：戌乾亥三山配 乾卦</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 易学基础 - 中国传统术数资源导航 | 遵循MIT协议，使用请注明出处</p>
+            <p>项目地址：<a href="https://github.com/westernwaterfall/yi-basic" target="_blank">https://github.com/westernwaterfall/yi-basic</a></p>
+            <p>关于作者：<a href="https://westflow.cn" target="_blank">westflow.cn</a> - 术数西川斋</p>
+        </footer>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // 隐藏所有tab内容
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // 移除所有tab按钮的active状态
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            // 显示选中的tab内容
+            document.getElementById(tabName).classList.add('active');
+            
+            // 激活对应的tab按钮
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
